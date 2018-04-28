@@ -1,0 +1,58 @@
+#include <iomanip>
+#include <algorithm>
+#include <cmath>
+#include <process.h>
+#include <conio.h>
+#include <iostream>
+using namespace std ;
+void fast(){
+  std :: ios_base :: sync_with_stdio (0);
+  cin.tie(0);
+  cout.tie(0);
+}
+int brr[100000];
+int main ()
+{
+ fast();
+ long long n,arr[100000],m=0,f=0,t,x,y;
+ string s;
+ cin>>n;
+ 
+ //    transform(s.begin(), s.end(), s.begin(), ::tolower);
+ //sort(s.begin(),s.end());
+// cout<<s<<endl;
+   for(int i=0;i<n;i++)
+   cin>>arr[i];
+   cin>>t;
+    for(int i=0;i<t;i++)
+   {
+       cin>>x>>y;
+       x--;
+       y--;
+      
+       brr[x]++;
+      
+       brr[y+1]--;
+       
+   }
+   for(int i=0;i<n;i++)
+   {
+     // cout<<brr[i]<<" ";
+       brr[i]+=brr[i-1]; 
+       
+   }
+   
+  for(int i=0;i<n;i++)
+  {
+    if(brr[i]==0)
+    m++;
+  }
+     cout<<m<<endl; 
+     for(int i=0;i<n;i++)
+  {
+    if(brr[i]==0)
+    cout<<arr[i]<<" ";
+  }    
+  cout<<endl;
+  return 0;
+}

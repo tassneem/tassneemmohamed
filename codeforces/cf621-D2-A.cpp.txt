@@ -1,0 +1,55 @@
+#include <conio.h>
+
+#include <string>
+
+#include <iomanip>
+#include <algorithm>
+#include <cmath>
+#include <process.h>
+#include <iostream>
+using namespace std ;
+long long prime(long long x)
+{
+    int c=0;
+ if(x==1)
+     c=1;
+ else
+ {
+  for(long long j=2; j*j<=x;j++ ) 
+  {
+   if(x%j==0) 
+    c=1;
+    
+   }
+
+     if(c==0) 
+    return 1;
+     else 
+    return 0; 
+     }
+}
+int main()
+{
+ long long n,arr[100000],m=INT_MAX,f=0,sum=0;
+
+cin>>n;
+ for(int i=0; i<n;i++)
+   cin>>arr[i];
+   for(int i=0; i<n;i++) 
+   {
+       sum+=arr[i];
+       if(arr[i]%2)
+       {
+           f++;
+           m=min(m,arr[i]);
+       }
+   }
+   if(f%2)
+  cout<< sum-m<<endl;
+   else
+   cout<<sum<<endl;
+   
+      
+
+    return 0;
+}

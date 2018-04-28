@@ -1,0 +1,75 @@
+#include <conio.h>
+
+#include <string>
+
+#include <iomanip>
+#include <algorithm>
+#include <cmath>
+#include <process.h>
+#include <iostream>
+using namespace std ;
+long long prime(long long x)
+{
+    int c=0;
+ if(x==1)
+     c=1;
+ else
+ {
+  for(long long j=2; j*j<=x;j++ ) 
+  {
+   if(x%j==0) 
+    c=1;
+    
+   }
+
+     if(c==0) 
+    return 1;
+     else 
+    return 0; 
+     }
+}
+int main()
+{
+ long long n,arr[100000],m=0,f=0,t,x,y;     
+ string s;
+ cin>>n>>t;
+ //    transform(s.begin(), s.end(), s.begin(), ::tolower);
+ //sort(s.begin(),s.end());
+// cout<<s<<endl;
+   for(int i=0;i<n;i++)
+   cin>>arr[i];
+   t--;
+    for(int i=0;i<n;i++)
+   {
+       if((t-i)>=0&&(t+i)<=n-1)
+       {
+           
+       if(arr[t-i]+arr[t+i]==2)
+       {
+           if(i==0)
+           {
+           f=1;
+           m++;
+           }
+           else
+           m+=2;
+       }
+       }
+       else if((t-i)>=0&&(t+i)>n-1)
+       {
+           if(arr[t-i]==1)
+           m++;
+       }
+       else if((t-i)<0&&(t+i)<=n-1)
+       {
+          if(arr[t+i]==1)
+           m++; 
+       }
+     
+    //   cout<<t-i<<endl;
+      //  cout<<t+i<<endl;
+   }
+ 
+  cout<<m<<endl;
+    return 0;
+}

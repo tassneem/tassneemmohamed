@@ -1,0 +1,55 @@
+#include <conio.h>
+
+#include <string>
+
+#include <iomanip>
+#include <algorithm>
+#include <cmath>
+#include <process.h>
+#include <iostream>
+using namespace std ;
+long long prime(long long x)
+{
+    int c=0;
+ if(x==1)
+     c=1;
+ else
+ {
+  for(long long j=2; j*j<=x;j++ ) 
+  {
+   if(x%j==0) 
+    c=1;
+    
+   }
+
+     if(c==0) 
+    return 1;
+     else 
+    return 0; 
+     }
+}
+int main()
+{
+ long long a,b,c,x,y,z,n,m=0,f=0;
+
+cin>>a>>b>>c>>x>>y>>z>>n;
+   if((a+b+c)%5==0)
+   m=(a+b+c)/5;
+   else
+   m=((a+b+c)/5)+1;
+   if((x+y+z)%10==0)
+   f=(x+y+z)/10;
+   else
+   f=((x+y+z)/10)+1;
+
+  
+   if((f+m)<=n)
+  cout<<"YES"<<endl;
+  else
+  cout<<"NO"<<endl;
+
+   
+      
+
+    return 0;
+}
